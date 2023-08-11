@@ -49,10 +49,10 @@ void solve(){
    vector<vector<int>> adj(vertices + 1,vector<int> (vertices + 1,0));
 
    for(int i=0;i<edges;++i){
-      int x,y; read(x,y);
+      int u,v; read(u,v);
 
       // assuming undirected graph
-      adj[x][y] = 1; adj[y][x] = 1;
+      adj[u][v] = 1; adj[v][u] = 1;
    }
 
    // solution object

@@ -51,10 +51,10 @@ void solve(){
    vector<vector<int>> adj(vertices + 1);
 
    for(int i=0;i<edges;++i){
-      int x,y; read(x,y);
+      int u,v; read(u,v);
       
       // assuming undirected graph
-      adj[x].push_back(y); adj[y].push_back(x);
+      adj[u].push_back(v); adj[v].push_back(u);
    }
 
    // solution object

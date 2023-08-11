@@ -27,15 +27,13 @@ class Solution{
 public:
 
    // print Adjacency List
-   void printGraph(vector<vector<int>> &adj){
-      int n = adj.size();
+   void printGraph(unordered_map<int,list<pair<int,int>>> &adj){
 
-      for(int i=0;i<n;++i){
-         cout << i << " -> ";
-         for(int j=0;j<adj[i].size();++j){
-            cout << adj[i][j] << " ";
+      for(auto i: adj){
+         
+         for(auto j: i.second){
+            cout << i.first << " -> " << j.first << " " << j.second << endl;;
          }
-         cout << endl;
       }
       
    }
@@ -48,13 +46,13 @@ void solve(){
    int vertices,edges; read(vertices,edges);
 
    // adjacency Matrix
-   vector<vector<int>> adj(vertices + 1);
+   unordered_map<int,list<pair<int,int>>> adj;
 
    for(int i=0;i<edges;++i){
-      int u,v; read(u,v);
+      int u,v,w; read(u,v,w);
       
       // assuming undirected graph
-      adj[u].push_back(v); adj[v].push_back(u);
+      adj[u].push_back({v,w}); 
    }
 
    // solution object
